@@ -104,7 +104,7 @@ export const Lists = () => {
                         <div className={s.containerCardUser}>
                             {getFlatUsers(activeFlat.id).map(user =>
                                 <div key={user.id} className={s.itemCardUser}>
-                                    <div>
+                                    <div className={s.cntButton}>
                                         <MyButton onClick={() => removeClientInFlat(user.bindId, activeFlat.id)}>delete</MyButton>
                                     </div>
                                     <div onClick={() => console.log(user)}>
@@ -116,6 +116,7 @@ export const Lists = () => {
                         <div>
                             {clientFormFlatId === activeFlat.id &&
                                 <form>
+                                    <h2>Добавте жильца</h2>
                                     {(name.isDirty && name.minLengthError) && <div style={{color: 'red'}}>Введите больше символов для поля</div>}
                                     {(name.isDirty && name.maxLengthError) && <div style={{color: 'red'}}>Слишком длинное имя жильца</div>}
                                     {(name.isDirty && name.isEmpty) && <div style={{color: 'red'}}>Поле не может быть пустым</div>}

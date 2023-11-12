@@ -40,3 +40,7 @@
     background: transparent;
     border: 1px solid brown;
 }
+
+.cntButton {
+    text-align: right;
+}
