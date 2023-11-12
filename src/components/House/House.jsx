@@ -3,7 +3,7 @@ import ItemService from "../../API/APIService";
 import { Flat } from "../Flat/Flat";
 
 
-export const House = ({house, setActiveFlat, users, setUsers}) => {
+export const House = ({house, setActiveFlat, users, setUsers, setClientFormFlatId, getItemUsers}) => {
 
     const [flats, setFlats] = useState({});
 
@@ -18,13 +18,13 @@ export const House = ({house, setActiveFlat, users, setUsers}) => {
 
     
     return (
-        <div key={house.id} onClick={() => getItemFlats(house.id)}>
+        <div onClick={() => getItemFlats(house.id)}>
             {house.id}. Дом -- {house.name}
 
             {flats && Array.isArray(flats[String(house.id)]) &&
                 <div style={{marginLeft: '10px'}}>
                     {flats[house.id].map(flat =>
-                        <Flat flat={flat} setUsers={setUsers} setFlats={setFlats} setActiveFlat={setActiveFlat} users={users} />
+                        <Flat key={flat.id} flat={flat} setUsers={setUsers} setFlats={setFlats} setActiveFlat={setActiveFlat} users={users} setClientFormFlatId={setClientFormFlatId} getItemUsers={getItemUsers} />
                     )}
                 </div>
             }

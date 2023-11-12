@@ -6,7 +6,7 @@
 }
 
 .navbar {
-    padding: 10px;
+    padding: 20px;
     width: 400px;
     color: brown;
     font-size: 14px;
@@ -22,17 +22,19 @@
     border-top: 1px solid brown;
     border-right: 1px solid brown;
     border-bottom: 1px solid brown;
+    padding: 20px;
 }
 
 .containerCardUser {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .itemCardUser {
+    margin-bottom: 20px;
     text-align: center;
     border-radius: 4px;
-    margin: 10px;
     width: 160px;
     height: 200px;
     background: transparent;
