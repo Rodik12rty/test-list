@@ -20,6 +20,8 @@ export const Lists = () => {
 
     const [clientFormFlatId, setClientFormFlatId] = useState(null);
 
+    // const [showClients, setShowClients] = useState(false);
+
     const[fetchStreets, isStreetsLoading, streetError] = useFetching(async () => {
         const response = await ItemService.getStreets();
         setStreets(response.data);
@@ -37,6 +39,7 @@ export const Lists = () => {
     };
 
     const getItemUsers = async (flatId) => {
+        // setShowClients(!showClients)
         const response = await ItemService.getFlatUsers(flatId);
         setUsers((oldUsers) => ({
             ...oldUsers,
@@ -94,6 +97,7 @@ export const Lists = () => {
                         users={users} 
                         setClientFormFlatId={setClientFormFlatId}
                         getItemUsers={getItemUsers}
+                        // showClients={showClients}
                     />        
                 )}
             </div>
@@ -152,7 +156,7 @@ export const Lists = () => {
 
                                     <MyButton
                                         disabled={!name.inputValid || !phone.inputValid || !email.inputValid} 
-                                        onClick={e => createClientInFlat(e, activeFlat.id)}>
+                                        onClick={e => {createClientInFlat(e, activeFlat.id)}}>
                                         addClient
                                     </MyButton>
                                 </form>
